@@ -19,17 +19,17 @@ Layout Bootstrap para os formulários
 # Passo a passo em todo inicio de aula
 
 # Habilitar o Proxy
-Tecla Windows - Abrir a janela Prompt de Comando
-Copie e cole a linha abaixo - selecione e pressione as teclas Ctrl C
+- Tecla Windows - Abrir a janela Prompt de Comando
+- Copie e cole a linha abaixo - selecione e pressione as teclas Ctrl C
 
 git config --global http.proxy http://10.1.21.254:3128
 
-Pressione Enter
+- Pressione Enter
 
 ##Clonar o repositorio **login** na pasta **C:\xampp\htdocs**
-Tecla Windows -Abrir o GitHub Desktop
-Clique em *Sign in to GitHub.com*
-Digite seu Login e Senha do GitHub
+- Tecla Windows -Abrir o GitHub Desktop
+- Clique em *Sign in to GitHub.com*
+- Digite seu Login e Senha do GitHub
 Caso necessário,após o login digite seu nome e e-maile clique em *Continue*
 selecione o repositorio **login** e logo abaixo clique no botão azul **clone...*
 Clique no botão *choose* e encontre no disco local C: a pasta xampp e dentro dela htdocs
