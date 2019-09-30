@@ -3,6 +3,8 @@ Sistema de Login em PHP e Javascript
 
 ---
 
+# aula 3 - 30/09/2019
+
 # aula 2 - 24/09/2019
 Layout Bootstrap para os formulários
 - Formulário de login
