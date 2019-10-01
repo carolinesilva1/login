@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <title>Sistema de Login</title>
+    <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+
     <style>
         #alerta,
         #caixaSenha,
@@ -43,11 +45,11 @@
                 </h2>
                 <form action="#" method="post" class="p-2" id="formlogin">
                     <div class="form-group">
-                        <input type="text" name="nomeUsuario" id="nomeUsuario" placeholder="Nome de Usuário" class="form-control" required minlenght="5">
+                        <input type="text" name="nomeDoUsuario" id="nomeDoUsuario" placeholder="Nome de Usuário" class="form-control" required minlenght="5">
 
                     </div>
                     <div class="form-group">
-                        <input type="password" name="senhaUsuario" id="senhaUsuario" placeholder="Senha" class="form-control" required minlegth="6">
+                        <input type="password" name="senhaDoUsuario" id="senhaDoUsuario" placeholder="Senha" class="form-control" required minlegth="6">
                     </div>
                     <div class="form-group">
                         <div class="custon-control custon-checkbox">
@@ -146,7 +148,7 @@
 
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group mt-4">
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" name="concordar" id="concordar" class="custom-control-input">
                             <label for="concordar" class="custom-control-label">
@@ -178,8 +180,22 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
     <script>
-        //Codigo jQuery para mostrar e ocultar os formulários
+        //Código jQuery para mostrar e ocultar os formulários
         $(function() {
+
+            //Validação de formulários 
+            jQuery.validator.setDefaults({
+                success: "valid"
+            });
+            $("#formRegistro").validate({
+                rules: {
+                    senhaDoUsuario: "required",
+                    senhaUsuarioConfirmar: {
+                        equalTo: "#senhaDoUsuario"
+                    }
+                }
+            });
+            //Mostrar e ocultar formulários
             $("#btnEsqueci").click(function() {
                 $("#caixaLogin").hide(); //Ocultar Login
                 $("#caixaSenha").show(); //Mostrar Nova Senha
