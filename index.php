@@ -43,20 +43,23 @@
                 <h2 class="text-center mt-2">
                     Entrar no Sistema
                 </h2>
-                <form action="#" method="post" class="p-2" id="formlogin">
+                <form action="#" method="post" class="p-2" id="formLogin">
                     <div class="form-group">
                         <input type="text" name="nomeDoUsuario" id="nomeDoUsuario" placeholder="Nome de Usuário" class="form-control" required minlenght="5">
 
                     </div>
+
                     <div class="form-group">
                         <input type="password" name="senhaDoUsuario" id="senhaDoUsuario" placeholder="Senha" class="form-control" required minlegth="6">
                     </div>
-                    <div class="form-group">
-                        <div class="custon-control custon-checkbox">
-                            <input type="checkbox" name="lembrar" id="lembrar" class="custon-control-input">
-                            <label for="lembrar" class="custon-control-label">
+                    <div class="form-group mt-5">
+                        <div class="custom-control custom-checkbox">
+
+                            <input type="checkbox" name="lembrar" id="lembrar" class="custom-control-input">
+                            <label for="lembrar" class="custom-control-label">
                                 Lembrar de Mim
                             </label>
+
                             <a href="#" class="float-right" id="btnEsqueci">
                                 Esqueci a Senha
                             </a>
@@ -195,6 +198,9 @@
                     }
                 }
             });
+            $("#formLogin").validate();
+
+            $("#formSenha").validate();
             //Mostrar e ocultar formulários
             $("#btnEsqueci").click(function() {
                 $("#caixaLogin").hide(); //Ocultar Login
@@ -211,6 +217,29 @@
             $("#btnJaRegistrado2").click(function() {
                 $("#caixaLogin").show(); //Mostrar
                 $("#caixaRegistro").hide(); //Ocultar
+            });
+            /*
+             * Translated default messages for the jQuery validation plugin.
+             * Locale: PT_BR
+             */
+            jQuery.extend(jQuery.validator.messages, {
+                required: "Este campo &eacute; requerido.",
+                remote: "Por favor, corrija este campo.",
+                email: "Por favor, forne&ccedil;a um endere&ccedil;o eletr&ocirc;nico v&aacute;lido.",
+                url: "Por favor, forne&ccedil;a uma URL v&aacute;lida.",
+                date: "Por favor, forne&ccedil;a uma data v&aacute;lida.",
+                dateISO: "Por favor, forne&ccedil;a uma data v&aacute;lida (ISO).",
+                number: "Por favor, forne&ccedil;a um n&uacute;mero v&aacute;lido.",
+                digits: "Por favor, forne&ccedil;a somente d&iacute;gitos.",
+                creditcard: "Por favor, forne&ccedil;a um cart&atilde;o de cr&eacute;dito v&aacute;lido.",
+                equalTo: "Por favor, forne&ccedil;a o mesmo valor novamente.",
+                accept: "Por favor, forne&ccedil;a um valor com uma extens&atilde;o v&aacute;lida.",
+                maxlength: jQuery.validator.format("Por favor, forne&ccedil;a n&atilde;o mais que {0} caracteres."),
+                minlength: jQuery.validator.format("Por favor, forne&ccedil;a ao menos {0} caracteres."),
+                rangelength: jQuery.validator.format("Por favor, forne&ccedil;a um valor entre {0} e {1} caracteres de comprimento."),
+                range: jQuery.validator.format("Por favor, forne&ccedil;a um valor entre {0} e {1}."),
+                max: jQuery.validator.format("Por favor, forne&ccedil;a um valor menor ou igual a {0}."),
+                min: jQuery.validator.format("Por favor, forne&ccedil;a um valor maior ou igual a {0}.")
             });
         });
     </script>
