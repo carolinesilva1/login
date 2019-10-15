@@ -1,9 +1,19 @@
 <?php
+// Conexão com o banco de dados
+require_once 'configBD.php';
 
-    
+function verificar_entrada($entrada){
+        //filtrando a entrada
+        $saida = htmlspecialchars($entrada);
+        $saida = stripslashes($saida);
+        $saida = trim($saida);
+        return $saida; //retorna a saida limpa
+}
+
+
 // Teste a ação 
 if(isset ($_POST['action'])){
-    if($_POST['action'] == 'cadastro'){
+if($_POST['action'] == 'cadastro'){
 //Teste se a ação é cadastro
 echo "\n<p> cadastro</p>";
 echo "\n<pre>";
