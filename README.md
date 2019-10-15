@@ -4,6 +4,7 @@ Sistema de Login em PHP e Javascript
 ---
 
 # aula 6 - 15/10/2019
+- Persistência de dados no banco de dados
 
 # aula 5 - 07/10/2019
 - Envio de dados do front-end para o back-end, métodos GET e POST.
@@ -65,3 +66,10 @@ abra o navegador firefox azul e digite http://localhost/login
 ## editar utilizando o VS Code
 abrir o visual studio code
 abra no vs code a pasta C:\xampp\htdocs\login*
+
+## Importar banco de dados
+- Acessar no navegador http://localhost/phpmyadmin
+- Clicar em importar 
+- Selecionar o arquivo, clicando em Browse ou escolha o arquivo
+- Abra o arquivo 127.0.0.1.sql e clique em executar
+- O banco deve ter sido importado corretamente
