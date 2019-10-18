@@ -21,6 +21,7 @@
         }
     </style>
 </head>
+
 <body class="bg-dark">
     <!-- Fundo Escuro -->
     <main class="container mt-4">
@@ -272,4 +273,5 @@
         });
     </script>
 </body>
+
 </html>
