@@ -42,7 +42,7 @@ if (isset($_POST['action'])) {
                         //As senhas conferem, verificar se o usuário já
                         //existe no banco de dados
                         $sql = $connect->prepare("SELECT nomeDoUsuario, emailUsuario 
-            FROM usuario WHERE nomeDoUsuario = ? OR emailUsuario = ?");
+        FROM usuario WHERE nomeDoUsuario = ? OR emailUsuario = ?");
                         $sql->bind_param("ss", $nomeDoUsuario, $emailUsuario);
                         $sql->execute();
                         $resultado = $sql->get_result();
@@ -63,7 +63,7 @@ if (isset($_POST['action'])) {
                                         $nomeCompleto,
                                         $emailUsuario,
                                         $senhaCodificada,
-                                        $dataCriado
+                                        $dataCriado,
                                 );
                                 if ($sql->execute()) {
                                         echo "<p class='text-success'>Usuário cadastrado</p>";
@@ -74,11 +74,28 @@ if (isset($_POST['action'])) {
                         }
                 }
         } else if ($_POST['action'] == 'login') {
-                //Senão, teste se ação é login
-                echo "\n<p>login</p>";
-                echo "\n<pre>"; //Pre-formatar
-                print_r($_POST);
-                echo "\n<\pre>";
+                $nomeUsuario = verificar_entrada($_POST['nomeUsuario']);
+                $senhaUsuario = verificar_entrada($_POST['senhaUsuario']);
+                $senha = sha1($senhaUsuario);
+
+                $sql = $connect->prepare("SELECT * FROM usuario WHERE 
+                senhaDoUsuario = ? and nomeDoUsuario =?");
+                $sql->bind_param("ss", $senha, $nomeUsuario);
+
+                $sql->execute();
+
+                $busca = $sql->fetch();
+
+                if($busca != null){
+                        echo "ok";
+                }else{
+                        echo "<p class='text-danger'>";
+                        echo "Falhou a entrada no sistema. Nome de usuário ou senha
+                        inválidos";
+                        echo "</p>";
+                        exit();
+                }
+
         } else if ($_POST['action'] == 'senha') {
                 //Senão, teste se ação é recuperar senha
                 echo "\n<p>senha</p>";
