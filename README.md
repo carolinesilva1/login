@@ -3,6 +3,9 @@ Sistema de Login em PHP e Javascript
 
 ---
 
+# aula 8 - 21/10/2019
+
+
 # aula 7 - 18/10/2019
 - Inicio da autenticação e entrada no sistema
 
