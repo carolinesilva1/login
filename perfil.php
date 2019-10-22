@@ -51,14 +51,14 @@ require_once "session.php";
             <?=    $nomeCompleto ?>
             </h2>
             <h2 class="text-center">
-                E-mail do Usuário:
+                E-mail do Usuário:caroline123@gmail.com
                 <a href="mailto: <?=$emailUsuario?>">
-                <?=$emailUsuario?>
+            
 
                 </a>
             </h2>
             <h2 class="text-center">
-                Registrado em 18/10/2019 <?= $dataCriado =date("Y-m-d"); ?>
+                Registrado em: <?= $dataCriado  ?>
 
             </h2>
         </div>
