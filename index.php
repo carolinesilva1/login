@@ -16,7 +16,7 @@
     <style>
         #alerta,
         #caixaSenha,
-        #caixaRegistro {
+        #caixaRegistro #caixaNovo {
             display: none;
         }
     </style>
@@ -42,35 +42,27 @@
                 </h2>
                 <form action="#" method="post" class="p-2" id="formLogin">
                     <div class="form-group">
-                        <input type="text" name="nomeUsuario" 
-                        id="nomeUsuario" placeholder="Nome de Usuário" 
-                        class="form-control" required minlength="5"
-                        value="<?=
-                        isset($_COOKIE['nomeDoUsuario'])
-                        ?$_COOKIE['nomeDoUsuario']:"";
-                        ?>">
+                        <input type="text" name="nomeUsuario" id="nomeUsuario" placeholder="Nome de Usuário" class="form-control" required minlength="5" value="<?=
+                                                                                                                                                                    isset($_COOKIE['nomeDoUsuario'])
+                                                                                                                                                                        ? $_COOKIE['nomeDoUsuario'] : "";
+                                                                                                                                                                ?>">
 
 
                     </div>
                     <div class="form-group">
-                        <input type="password" name="senhaUsuario" 
-                        id="senhaUsuario" placeholder="Senha" 
-                        class="form-control" required minlength="6"
-                        value="<?=
-                        isset($_COOKIE['senhaDoUsuario'])
-                        ?$_COOKIE['senhaDoUsuario']:"";
-                        ?>">
+                        <input type="password" name="senhaUsuario" id="senhaUsuario" placeholder="Senha" class="form-control" required minlength="6" value="<?=
+                                                                                                                                                                isset($_COOKIE['senhaDoUsuario'])
+                                                                                                                                                                    ? $_COOKIE['senhaDoUsuario'] : "";
+                                                                                                                                                            ?>">
 
                     </div>
                     <div class="form-group mt-5">
                         <div class="custom-control custom-checkbox">
 
 
-                            <input type="checkbox" name="lembrar" id="lembrar" 
-                            class="custom-control-input"
-                            <?= 
-                                isset($_COOKIE['senhaDoUsuario'])?"checked":"";                           
-                            ?>>
+                            <input type="checkbox" name="lembrar" id="lembrar" class="custom-control-input" <?=
+                                                                                                                isset($_COOKIE['senhaDoUsuario']) ? "checked" : "";
+                                                                                                            ?>>
 
 
 
@@ -91,6 +83,14 @@
                                 Registre-se aqui!
                             </a>
                         </p>
+                    </div>
+                    <div class="form-group">
+
+
+                        <a href="#" id="btnNovo2">
+                            Mostrar
+                        </a>
+
                     </div>
                 </form>
             </div>
@@ -168,11 +168,92 @@
                             </a>
                         </p>
                     </div>
+
+
                 </form>
             </div>
         </section>
         <!-- Final do formulário de 
         cadastro de novos usuários -->
+
+        <!-- Inicio do formulario Novo -->
+
+
+        <section class="row mt-5">
+            <div class="col-lg-4 offset-lg-4 bg-light rounded" id="caixaNovo">
+                <h2 class="text-center mt-2">Novo</h2>
+                <form action="#" method="post" class="p-2" id="formNovo">
+
+
+
+
+                    <div class="form-group">
+                        <label for="nomeCompleto">Nome Completo</label>
+                        <input type="text" name="nomeCompleto" id="nomeCompleto" required placeholder="Digite o seu nome completo" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" name="email" id="email" required placeholder="Digite o seu E-mail" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dataNiver">Data De Aniversário</label>
+                        <input type="date" name="dataNiver" id="dataNiver" required class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="urlface">Perfil do Facebook</label>
+                        <input type="url" name="urlFace" id="urlFace" required placeholder="Página do perfil do Facebook" class="form-control">
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="urlImagem">Imagem de Perfil</label>
+                        <input type="url" name="urlImagem" id="urlImagem" required placeholder="URL da imagem do perfil" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="estado">Estado</label>
+                        <select class="form-control" name="estado" id="estado">
+                            <option></option>
+                            <option value="PR">Paraná</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="SC">Santa Catarina</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cidade">Cidade</label>
+                        <select class="form-control" name="cidade" id="cidade">
+                            <option></option>
+                            <option value="Brusque">Brusque</option>
+                            <option value="Guabiruba">Guabiruba</option>
+                            <option value="Itajaí">Itajaí</option>
+                            <option value="Gaspar">Gaspar</option>
+                            <option value="Botuverá">Botuverá</option>
+                            <option value="Nova Trento">Nova Trento</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group mt-4">
+                        <input type="submit" value="::Enviar::" name="btnEnviar" class="btn btn-info btn btn-block">
+
+                    </div>
+                    <div class="form-group">
+
+
+                        <a href="#" id="btnNovo">
+                            Voltar
+                        </a>
+
+                    </div>
+
+
+                </form>
+            </div>
+        </section>
+
     </main>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -197,6 +278,8 @@
             });
             $("#formLogin").validate();
             $("#formSenha").validate();
+            $("#formNovo").validate();
+
             //Mostrar e Ocultar Formulários
             $("#btnEsqueci").click(function() {
                 $("#caixaLogin").hide(); //Ocultar Login
@@ -214,6 +297,23 @@
                 $("#caixaLogin").show(); //Mostrar
                 $("#caixaRegistro").hide(); //Ocultar
             });
+
+            $("#btnNovo").click(function() {
+                $("#caixaLogin").show(); //Ocultar
+                $("#caixaNovo").hide(); //Mostrar
+            });
+
+            $("#btnEnviar").click(function() {
+                $("#caixaLogin").show(); //Mostrar
+                $("#caixaNovo").hide(); //Ocultar
+            });
+
+
+
+
+
+
+
             //Cadastro de novo usuário
             $("#btnRegistrar").click(function(e) {
                 if (document
