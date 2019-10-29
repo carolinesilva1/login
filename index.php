@@ -16,7 +16,9 @@
     <style>
         #alerta,
         #caixaSenha,
-        #caixaRegistro #caixaNovo {
+        #caixaRegistro,
+        #caixaNovo {
+
             display: none;
         }
     </style>
@@ -188,28 +190,28 @@
 
 
                     <div class="form-group">
-                        <label for="nomeCompleto">Nome Completo</label>
+
                         <input type="text" name="nomeCompleto" id="nomeCompleto" required placeholder="Digite o seu nome completo" class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <label for="email">E-mail</label>
+
                         <input type="email" name="email" id="email" required placeholder="Digite o seu E-mail" class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <label for="dataNiver">Data De Aniversário</label>
+
                         <input type="date" name="dataNiver" id="dataNiver" required class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <label for="urlface">Perfil do Facebook</label>
+
                         <input type="url" name="urlFace" id="urlFace" required placeholder="Página do perfil do Facebook" class="form-control">
 
                     </div>
 
                     <div class="form-group">
-                        <label for="urlImagem">Imagem de Perfil</label>
+
                         <input type="url" name="urlImagem" id="urlImagem" required placeholder="URL da imagem do perfil" class="form-control">
                     </div>
 
@@ -236,7 +238,7 @@
                         </select>
                     </div>
 
-                    <div class="form-group mt-4">
+                    <div class="form-group mt-5">
                         <input type="submit" value="::Enviar::" name="btnEnviar" class="btn btn-info btn btn-block">
 
                     </div>
@@ -298,12 +300,12 @@
                 $("#caixaRegistro").hide(); //Ocultar
             });
 
-            $("#btnNovo").click(function() {
+            $("#btnNovo2").click(function() {
                 $("#caixaLogin").show(); //Ocultar
                 $("#caixaNovo").hide(); //Mostrar
             });
 
-            $("#btnEnviar").click(function() {
+            $("#btnNovo").click(function() {
                 $("#caixaLogin").show(); //Mostrar
                 $("#caixaNovo").hide(); //Ocultar
             });
