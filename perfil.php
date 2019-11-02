@@ -25,7 +25,8 @@ require_once "session.php";
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(Página atual)</span></a>
+                    <a class="nav-link" href="#">Home <span 
+                    class="sr-only">(Página atual)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Destaques</a>
@@ -37,7 +38,9 @@ require_once "session.php";
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="#">Sobre</a>
-                        <a class="dropdown-item" href="#">Fotos</a>
+
+                    
+                        <a class="dropdown-item" href="http://localhost/login/fotos.php">Fotos</a>
                         <a class="dropdown-item" href="sair.php">Sair</a>
                     </div>
                 </li>
@@ -48,12 +51,12 @@ require_once "session.php";
         <div class="container">
             <h1 class="display-4">Boas Vindas</h1>
             <h2 class="display-2 text-center bg-info rounded p-1 text-light">
-            <?=    $nomeCompleto ?>
+                <?= $nomeCompleto ?>
             </h2>
             <h2 class="text-center">
                 E-mail do Usuário:caroline123@gmail.com
-                <a href="mailto: <?=$emailUsuario?>">
-            
+                <a href="mailto: <?= $emailUsuario ?>">
+
 
                 </a>
             </h2>
