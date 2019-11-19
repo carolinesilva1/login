@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07-Out-2019 às 21:26
+-- Tempo de geração: 19-Nov-2019 às 01:14
 -- Versão do servidor: 10.3.16-MariaDB
 -- versão do PHP: 7.3.7
 
@@ -33,13 +33,26 @@ USE `senai`;
 
 DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE `usuario` (
-`idUsuario` int(10) UNSIGNED NOT NULL,
-`nomeCompleto` varchar(100) NOT NULL,
-`nomeDoUsuario` varchar(45) NOT NULL,
-`emailUsuario` varchar(45) NOT NULL,
-`senhaDoUsuario` char(40) NOT NULL,
-`dataCriado` date NOT NULL
+  `idUsuario` int(10) UNSIGNED NOT NULL,
+  `nomeCompleto` varchar(100) NOT NULL,
+  `nomeDoUsuario` varchar(45) NOT NULL,
+  `emailUsuario` varchar(45) NOT NULL,
+  `senhaDoUsuario` char(40) NOT NULL,
+  `dataCriado` date NOT NULL,
+  `token` char(10) NOT NULL,
+  `tempodevida` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `usuario`
+--
+
+INSERT INTO `usuario` (`idUsuario`, `nomeCompleto`, `nomeDoUsuario`, `emailUsuario`, `senhaDoUsuario`, `dataCriado`, `token`, `tempodevida`) VALUES
+(1, 'caroline', 'caroline1', 'carol123@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '2019-11-19', '', '2019-11-19 03:07:54'),
+(2, 'caroline', 'caroline12', 'caroline_silva1@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '2019-11-19', '', '2019-11-19 03:07:54'),
+(3, 'carol santos', 'carol123', 'carol123_silca@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '2019-11-19', '', '2019-11-19 03:07:54'),
+(4, 'caroline silva', 'carol12', 'carol1_silca@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '2019-11-19', '', '2019-11-19 03:08:50'),
+(5, 'caroline silva', 'carol23', 'carol1_silva@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '2019-11-19', '', '2019-11-19 03:09:06');
 
 --
 -- Índices para tabelas despejadas
@@ -49,9 +62,9 @@ CREATE TABLE `usuario` (
 -- Índices para tabela `usuario`
 --
 ALTER TABLE `usuario`
-ADD PRIMARY KEY (`idUsuario`),
-ADD UNIQUE KEY `nomeDoUsuario` (`nomeDoUsuario`),
-ADD UNIQUE KEY `emailUsuario` (`emailUsuario`);
+  ADD PRIMARY KEY (`idUsuario`),
+  ADD UNIQUE KEY `nomeDoUsuario` (`nomeDoUsuario`),
+  ADD UNIQUE KEY `emailUsuario` (`emailUsuario`);
 
 --
 -- AUTO_INCREMENT de tabelas despejadas
@@ -61,7 +74,7 @@ ADD UNIQUE KEY `emailUsuario` (`emailUsuario`);
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-MODIFY `idUsuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `idUsuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
