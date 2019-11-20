@@ -1,7 +1,6 @@
 <?php
 
 
-
 if (isset($_POST['nome_completo'])) {
     echo "\n<h1>Envio de dados método<em>POST</em></h1>";
     echo "\n<pre>\n";

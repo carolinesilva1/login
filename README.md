@@ -2,6 +2,12 @@
 Sistema de Login em PHP e Javascript
 
 ---
+# aula 11 - 19/11/2019
+- Geração de nova senha
+
+# aula 10 - 18/11/2019
+- Preparação para geração de uma nova senha.
+
 # aula 9 - 22/10/2019
 - Autenticação de usuario completa
 
